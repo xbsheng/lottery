@@ -1,0 +1,23 @@
+name: data
+on:
+  schedule:
+    - cron: "30 1 * * *" # UTC 01:30 = 北京 09:30
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  data:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4 # main: fetch.py 在这里
+      - name: 拉取数据(多源 fallback)
+        run: python fetch.py --out data
+      - name: 重建 data 分支(仅含 JSON)
+        run: |
+          git config user.name "lottery-bot"
+          git config user.email "lottery-bot@users.noreply.github.com"
+          git checkout --orphan data
+          git rm -rf --cached . -q
+          git add -f data
+          git commit -m "update $(date -u +%F)"
+          git push origin data --force
