@@ -29,7 +29,7 @@ export default function LatestDraw({ game, latest, earliest }: { game: Game; lat
           </div>
         </div>
 
-        <div className="mt-8 flex items-center gap-2 overflow-x-auto pb-1 sm:gap-3" key={game.key}>
+        <div className="mt-8 flex items-center gap-1.5 sm:gap-3" key={game.key}>
           {latest?.balls.map((n, i) => (
             <Ball key={`${game.key}-${i}`} n={n} color="red" size="xl" responsive lit delay={i * 0.14} />
           ))}

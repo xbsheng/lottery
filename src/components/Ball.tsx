@@ -12,7 +12,7 @@ const SIZE = {
 const RESP: Partial<Record<keyof typeof SIZE, string>> = {
   md: 'size-7 text-xs sm:size-9 sm:text-sm',
   lg: 'size-10 text-base sm:size-12 sm:text-lg',
-  xl: 'size-10 text-base sm:size-16 sm:text-2xl',
+  xl: 'size-9 text-sm sm:size-16 sm:text-2xl',
 }
 
 export default function Ball({

@@ -9,6 +9,7 @@ const PATHS: Record<string, string> = {
   arrow: 'M5 12h14M13 6l6 6-6 6',
   spark: 'M3 3v18h18M7 14l4-5 3 3 5-7',
   dots: 'M5 12h.01M12 12h.01M19 12h.01',
+  chart: 'M4 20V11M9.5 20V5M15 20V14M20.5 20V8',
 }
 
 export default function Icon({

@@ -6,6 +6,7 @@ import TrendChart from './components/TrendChart'
 import Stats from './components/Stats'
 import HistoryTable from './components/HistoryTable'
 import RandomPicker from './components/RandomPicker'
+import Skeleton from './components/Skeleton'
 import Icon from './components/Icon'
 
 // 数据存于仓库 data 分支的 data/ 目录, 通过 raw.githubusercontent.com 直读(参照 xbsheng 项目 output 分支模式)
@@ -21,7 +22,7 @@ function dataUrl(key: string) {
 
 const NAV = [
   { id: 'trend', label: '遗漏走势', icon: 'spark' },
-  { id: 'stats', label: '号码统计', icon: 'dots' },
+  { id: 'stats', label: '号码统计', icon: 'chart' },
   { id: 'history', label: '历史开奖', icon: 'table' },
   { id: 'random', label: '随机选号', icon: 'dice' },
 ] as const
@@ -91,7 +92,9 @@ export default function App() {
             数据加载失败: {error}（data 分支数据可能尚未就绪，首次自动抓取后恢复）
           </p>
         )}
-        <LatestDraw game={game} latest={rows.at(-1)} earliest={rows[0]} />
+        {Object.keys(data).length === 0 && !error ? <Skeleton /> : (
+          <>
+            <LatestDraw game={game} latest={rows.at(-1)} earliest={rows[0]} />
 
         <div id="trend" className="scroll-mt-28">
           <TrendChart game={game} rows={rows} />
@@ -105,6 +108,8 @@ export default function App() {
         <div id="random" className="scroll-mt-28">
           <RandomPicker game={game} />
         </div>
+          </>
+        )}
       </main>
 
       <footer className="border-t border-edge bg-panel-2/50">
