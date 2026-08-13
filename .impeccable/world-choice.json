@@ -1,0 +1,47 @@
+{
+  "title": "选择视觉世界",
+  "question": "骰子分配了「开奖大厅电子大屏」。保留它、选 challenger、或重掷。",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "开奖大厅电子大屏",
+      "kicker": "THE ROLL",
+      "lineage": "电视台开奖直播的摇奖大厅与电子大屏",
+      "thesis": "每期开奖都是一场仪式：深色大厅里，发光球体依次亮起。",
+      "palette": ["#0d1526", "#e8452c", "#2f6bff", "#f5b942", "#e8edf5"],
+      "materials": ["深色玻璃面板", "发光球体", "等宽数字", "滚动信息带"],
+      "viewport": "第一屏即最新开奖大屏：巨型期号、发光红蓝球组，下方数据面板开始工作。",
+      "risk": "深色数据站若对比度失守，可读性崩塌；需以高亮数字与卡片层级兜住。",
+      "hero": "https://impeccable.style/worlds/cards/broadcast-live-draw-hall-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/broadcast-live-draw-hall.webp"
+    },
+    {
+      "id": "challenger-nixie",
+      "label": "辉光管计数器",
+      "lineage": "实验室辉光管计数仪器",
+      "thesis": "每项统计都是一台发光的物理计数器，数字即界面。",
+      "case": "融合评估胜出：辉光管数字语言可作大屏世界统计面板的材料；独立成整体则彩民识别度偏弱。",
+      "palette": ["#ff8c1a", "#1a1a1a", "#8a8a8a", "#f5f5f5"],
+      "hero": "https://impeccable.style/worlds/cards/signals-instruments-nixie-laboratory-counter-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/signals-instruments-nixie-laboratory-counter.webp"
+    },
+    {
+      "id": "challenger-airport",
+      "label": "机场导向牌",
+      "lineage": "国际机场导向系统（史基浦黄）",
+      "thesis": "每个数据区都是一块信息看板：超大数字、严格箭头、一句话消息。",
+      "case": "看板语言能承载走势面板，但史基浦黄作为主色与彩票语境距离较远。",
+      "palette": ["#ffcd00", "#111111", "#ffffff", "#3a3a3a"],
+      "hero": "https://impeccable.style/worlds/cards/wayfinding-cartography-signage-terminal-yellow-wayfinding-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/wayfinding-cartography-signage-terminal-yellow-wayfinding.webp"
+    }
+  ],
+  "reroll": true,
+  "canon": true,
+  "canonCard": {
+    "label": "类别标准（中彩网式浅色门户）",
+    "thesis": "彩票站习以为常的浅色表格门户，全精度执行。",
+    "viewport": "顶部导航 + 最新开奖 + 历史表格，中规中矩。"
+  },
+  "steer": true
+}

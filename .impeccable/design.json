@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-13T00:00:00Z",
+  "title": "Design System: 开奖大厅",
+  "extensions": {
+    "colorMeta": {
+      "hall": { "role": "neutral", "displayName": "演播室黑暗", "canonical": "#080d1a", "tonalRamp": ["#03050c", "#080d1a", "#0d1429", "#131c3a", "#1a2549", "#22305c", "#2b3c72", "#47598c"] },
+      "panel": { "role": "neutral", "displayName": "深色玻璃", "canonical": "#0f1830", "tonalRamp": ["#060a16", "#0f1830", "#16223f", "#1e2c52", "#273868", "#32457e", "#3e5497", "#5c73b3"] },
+      "edge": { "role": "neutral", "displayName": "发丝边框", "canonical": "#1e2b4a", "tonalRamp": ["#0c1222", "#1e2b4a", "#2a3a61", "#374a7a", "#455c96", "#5470b4", "#6586d0", "#8ba4e2"] },
+      "ink": { "role": "neutral", "displayName": "舞台文字", "canonical": "#e9eff8", "tonalRamp": ["#5a6a86", "#7385a3", "#8fa0bd", "#a9b8d2", "#c2cee3", "#d8e1ee", "#e9eff8", "#f7fafd"] },
+      "ink-dim": { "role": "neutral", "displayName": "次级文字", "canonical": "#93a3c0", "tonalRamp": ["#46536b", "#5a6984", "#6f7f9d", "#8494b3", "#93a3c0", "#a9b7cf", "#c0cce0", "#d8e1ef"] },
+      "ball-red": { "role": "primary", "displayName": "红球", "canonical": "#ff4d3d", "tonalRamp": ["#5c1208", "#8f1c0e", "#c22815", "#e83422", "#ff4d3d", "#ff6a52", "#ff8a72", "#ffb3a6"] },
+      "ball-blue": { "role": "primary", "displayName": "蓝球", "canonical": "#3d7bff", "tonalRamp": ["#0f2566", "#17348f", "#1f45c0", "#2d63e8", "#3d7bff", "#5d93ff", "#82abff", "#bcd4ff"] },
+      "gold": { "role": "secondary", "displayName": "舞台金黄", "canonical": "#ffc84d", "tonalRamp": ["#5e3c05", "#8a5a09", "#b57a10", "#e0a11c", "#ffc84d", "#ffd873", "#ffe9b8", "#fff7e0"] }
+    },
+    "typographyMeta": {
+      "body": { "displayName": "正文", "purpose": "说明与正文，≤70ch" },
+      "label": { "displayName": "测量数字", "purpose": "期号/统计/倒计时等一切数字，tnum 等宽" }
+    },
+    "shadows": [
+      { "name": "panel", "value": "0 12px 32px -12px rgba(0,0,0,0.55), inset 0 1px 0 rgba(233,239,248,0.04)", "purpose": "所有面板的深度" },
+      { "name": "ball-glow", "value": "0 0 14px rgba(255,77,61,0.55) (红球, 蓝球 #3d7bff / 金黄 #ffc84d)", "purpose": "发光球体光晕" }
+    ],
+    "motion": [
+      { "name": "ball-lit", "value": "0.7s cubic-bezier(0.22,1,0.36,1) staggered 0.14s", "purpose": "开奖仪式: 球体依次 blur→bright 点亮" },
+      { "name": "pulse-gold", "value": "2.4s ease-out infinite", "purpose": "金黄高亮的柔和呼吸" }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button（随机一注）",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "全场唯一高饱和主操作：金黄底深棕字。",
+      "html": "<button class=\"ds-btn-primary\">随机一注</button>",
+      "css": ".ds-btn-primary { background: #ffc84d; color: #1a1400; border: none; border-radius: 8px; padding: 6px 14px; font-size: 14px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px; cursor: pointer; transition: filter 0.15s, transform 0.1s; } .ds-btn-primary:hover { filter: brightness(1.1); } .ds-btn-primary:active { transform: scale(0.95); } .ds-btn-primary:disabled { opacity: 0.7; }"
+    },
+    {
+      "name": "Tab（彩种切换）",
+      "kind": "nav",
+      "refersTo": "button-tab",
+      "description": "胶囊容器内的彩种切换，选中态亮底。",
+      "html": "<div class=\"ds-tabs\"><button class=\"ds-tab is-active\">双色球</button><button class=\"ds-tab\">大乐透</button></div>",
+      "css": ".ds-tabs { display: inline-flex; gap: 4px; padding: 4px; border: 1px solid #1e2b4a; border-radius: 12px; background: #0f1830; } .ds-tab { border: none; background: transparent; color: #93a3c0; padding: 6px 12px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: background 0.15s, color 0.15s; } .ds-tab:hover { color: #e9eff8; } .ds-tab.is-active { background: #2a3a61; color: #e9eff8; }"
+    },
+    {
+      "name": "Search Input（历史搜索）",
+      "kind": "input",
+      "refersTo": "input-search",
+      "description": "hall 底 + 发丝边框 + 前置放大镜图标。",
+      "html": "<div class=\"ds-search\"><svg viewBox=\"0 0 24 24\" width=\"14\" height=\"14\" fill=\"none\" stroke=\"#93a3c0\" stroke-width=\"1.5\"><path d=\"M21 21l-4.3-4.3M17 10.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z\"/></svg><input class=\"ds-input\" placeholder=\"搜期号或日期\"></div>",
+      "css": ".ds-search { position: relative; } .ds-search svg { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); } .ds-input { width: 240px; background: #080d1a; color: #e9eff8; border: 1px solid #1e2b4a; border-radius: 8px; padding: 6px 10px 6px 32px; font-size: 14px; transition: border-color 0.15s; } .ds-input::placeholder { color: #93a3c0; } .ds-input:focus { outline: none; border-color: #2a3a61; }"
+    },
+    {
+      "name": "Panel（数据面板）",
+      "kind": "card",
+      "refersTo": "panel",
+      "description": "深色玻璃面板，发丝边框 + 柔和投影 + 内顶高光。",
+      "html": "<div class=\"ds-panel\"><h3 class=\"ds-panel-title\">号码统计</h3></div>",
+      "css": ".ds-panel { background: linear-gradient(180deg, #0f1830, #0c1428); border: 1px solid #1e2b4a; border-radius: 12px; padding: 16px; box-shadow: 0 12px 32px -12px rgba(0,0,0,0.55), inset 0 1px 0 rgba(233,239,248,0.04); } .ds-panel-title { margin: 0 0 8px; color: #e9eff8; font-size: 16px; font-weight: 700; }"
+    },
+    {
+      "name": "Ball（发光球体）",
+      "kind": "custom",
+      "refersTo": "ball",
+      "description": "签名元素：径向渐变 + 三层光晕的立体球，等宽白字。",
+      "html": "<span class=\"ds-ball ds-ball-red\">09</span><span class=\"ds-ball ds-ball-blue\">11</span>",
+      "css": ".ds-ball { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; color: #fff; font-weight: 700; font-size: 14px; font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-variant-numeric: tabular-nums; } .ds-ball-red { background: radial-gradient(circle at 32% 28%, #ffb3a6 0%, #ff6a52 28%, #e83422 62%, #b8180c 100%); box-shadow: 0 2px 4px rgba(0,0,0,0.45), 0 0 14px rgba(255,77,61,0.55), inset 0 -2px 4px rgba(0,0,0,0.35), inset 0 2px 3px rgba(255,255,255,0.35); } .ds-ball-blue { background: radial-gradient(circle at 32% 28%, #bcd4ff 0%, #6d9dff 28%, #2d63e8 62%, #143aa8 100%); box-shadow: 0 2px 4px rgba(0,0,0,0.45), 0 0 14px rgba(61,123,255,0.5), inset 0 -2px 4px rgba(0,0,0,0.35), inset 0 2px 3px rgba(255,255,255,0.35); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Draw Hall（开奖大厅）",
+    "overview": "开奖是一场仪式。深色演播大厅（深海军蓝黑底 #080d1a）里，最新一期号码作为发光球体依次点亮登场，金黄期号如舞台字幕，全部历史数据（2003 年至今 6400 期）在浏览器端即时统计。视觉上拒绝中彩网式的浅色表格门户：不追求信息密度极限的表格感，而是让每一次查询都发生在灯光下的舞台上。数据是本体的材料——等宽数字、发丝网格、面板的柔和阴影构成演播室的景深，红蓝双球是仅有的饱和色，金黄只留给期号、高亮与主操作。",
+    "keyCharacteristics": [
+      "深色演播室基调，红/蓝双球是仅有的高饱和色，金黄为高亮色",
+      "数字一律等宽（tabular），统计与期号是界面主角",
+      "面板为深色玻璃 + 1px 发丝边框 + 柔和投影，发光球体自带内高光外光晕",
+      "动效集中于一个仪式时刻：球体依次点亮（staggered blur→bright）",
+      "无渐变文字、无 emoji 图标（全部手绘 SVG 图标）、无衬线中文系统字体"
+    ],
+    "rules": [
+      { "name": "The Stage-Light Rule", "body": "红蓝只属于球体与数据点亮，金黄只属于高亮与主操作；背景永远是黑暗的，光打在数据上。", "section": "colors" },
+      { "name": "The Measurement Rule", "body": "任何数字——期号、频率、遗漏、倒计时、和值——必须用等宽字体渲染，保证同一数字在任何位置视觉宽度一致。", "section": "typography" }
+    ],
+    "dos": [
+      "用等宽渲染一切数字（Measurement Rule）",
+      "让光只打在数据上：红蓝球、金黄高亮，其余保持暗底（Stage-Light Rule）",
+      "用 1px 发丝边框分隔面板内部（表格行、面板边框）",
+      "让次级文字从蓝灰调变化，不引入纯灰",
+      "切彩种时重新触发球体点亮动画（仪式感）"
+    ],
+    "donts": [
+      "引入浅色表格门户式的白色卡片与黑色文字（世界的反面）",
+      "用渐变文字、emoji 图标、或系统展示字体做标题（craft-floor 禁令）",
+      "用零偏移纯色光晕冒充阴影（深度必须带 offset + blur）",
+      "在面板上叠面板（嵌套卡片）：面板是终层容器",
+      "编造统计数据或开奖结论：所有数字必须来自数据文件"
+    ]
+  }
+}
