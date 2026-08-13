@@ -56,18 +56,30 @@ export default function App() {
             <span className="text-lg font-bold tracking-tight text-ink">开奖大厅</span>
             <span className="hidden text-xs text-ink-dim md:inline">双色球 · 大乐透 历史数据</span>
           </a>
-          <div className="flex items-center gap-1 rounded-xl border border-edge bg-panel p-1">
-            {(Object.keys(GAMES) as ('ssq' | 'dlt')[]).map((k) => (
-              <button
-                key={k}
-                onClick={() => setGameKey(k)}
-                className={`rounded-lg px-3 py-1.5 text-sm font-semibold transition ${
-                  gameKey === k ? 'bg-edge-2 text-ink' : 'text-ink-dim hover:text-ink'
-                }`}
-              >
-                {GAMES[k].title}
-              </button>
-            ))}
+          <div className="flex items-center gap-2">
+            <a
+              href="https://github.com/xbsheng/lottery"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-1.5 rounded-lg border border-edge bg-panel px-2.5 py-2 text-ink-dim transition hover:border-edge-2 hover:text-ink"
+              title="查看源码"
+            >
+              <Icon name="github" className="size-4" />
+              <span className="hidden text-xs sm:inline">源码</span>
+            </a>
+            <div className="flex items-center gap-1 rounded-xl border border-edge bg-panel p-1">
+              {(Object.keys(GAMES) as ('ssq' | 'dlt')[]).map((k) => (
+                <button
+                  key={k}
+                  onClick={() => setGameKey(k)}
+                  className={`rounded-lg px-3 py-1.5 text-sm font-semibold transition ${
+                    gameKey === k ? 'bg-edge-2 text-ink' : 'text-ink-dim hover:text-ink'
+                  }`}
+                >
+                  {GAMES[k].title}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
         <nav className="mx-auto max-w-6xl px-4 pb-2 sm:px-6">
