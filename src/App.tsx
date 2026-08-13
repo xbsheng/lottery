@@ -21,10 +21,10 @@ function dataUrl(key: string) {
 }
 
 const NAV = [
-  { id: 'trend', label: '遗漏走势', icon: 'spark' },
+  { id: 'random', label: '随机选号', icon: 'dice' },
   { id: 'stats', label: '号码统计', icon: 'chart' },
   { id: 'history', label: '历史开奖', icon: 'table' },
-  { id: 'random', label: '随机选号', icon: 'dice' },
+  { id: 'trend', label: '遗漏走势', icon: 'spark' },
 ] as const
 
 export default function App() {
@@ -96,8 +96,8 @@ export default function App() {
           <>
             <LatestDraw game={game} latest={rows.at(-1)} earliest={rows[0]} />
 
-        <div id="trend" className="scroll-mt-28">
-          <TrendChart game={game} rows={rows} />
+        <div id="random" className="scroll-mt-28">
+          <RandomPicker game={game} />
         </div>
         <div id="stats" className="scroll-mt-28">
           <Stats game={game} rows={rows} />
@@ -105,8 +105,8 @@ export default function App() {
         <div id="history" className="scroll-mt-28">
           <HistoryTable rows={rows} />
         </div>
-        <div id="random" className="scroll-mt-28">
-          <RandomPicker game={game} />
+        <div id="trend" className="scroll-mt-28">
+          <TrendChart game={game} rows={rows} />
         </div>
           </>
         )}
