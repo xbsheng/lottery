@@ -57,13 +57,13 @@ export default function RandomPicker({ game }: { game: Game }) {
 
       <div className="mt-4 space-y-2.5">
         {tickets.map((t, i) => (
-          <div key={i} className="flex flex-wrap items-center gap-2 rounded-xl border border-edge bg-hall/60 px-3 py-2.5">
-            <span className="num w-6 text-xs text-ink-dim">{i + 1}</span>
+          <div key={i} className="flex items-center gap-1.5 overflow-x-auto rounded-xl border border-edge bg-hall/60 px-3 py-2.5 sm:gap-2">
+            <span className="num w-6 shrink-0 text-xs text-ink-dim">{i + 1}</span>
             {t.balls.map((n, j) => (
-              <Ball key={j} n={n} color="red" size="md" />
+              <Ball key={j} n={n} color="red" size="md" responsive />
             ))}
             {t.special.map((n, j) => (
-              <Ball key={`s${j}`} n={n} color="blue" size="md" />
+              <Ball key={`s${j}`} n={n} color="blue" size="md" responsive />
             ))}
           </div>
         ))}

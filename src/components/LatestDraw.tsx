@@ -29,13 +29,13 @@ export default function LatestDraw({ game, latest, earliest }: { game: Game; lat
           </div>
         </div>
 
-        <div className="mt-8 flex flex-wrap items-center gap-2.5 sm:gap-3" key={game.key}>
+        <div className="mt-8 flex items-center gap-2 overflow-x-auto pb-1 sm:gap-3" key={game.key}>
           {latest?.balls.map((n, i) => (
-            <Ball key={`${game.key}-${i}`} n={n} color="red" size="xl" lit delay={i * 0.14} />
+            <Ball key={`${game.key}-${i}`} n={n} color="red" size="xl" responsive lit delay={i * 0.14} />
           ))}
           {latest?.special.map((n, i) => (
             <Ball
-              key={`${game.key}-s${i}`} n={n} color="blue" size="xl"
+              key={`${game.key}-s${i}`} n={n} color="blue" size="xl" responsive
               lit delay={(latest.balls.length + i) * 0.14}
             />
           ))}
